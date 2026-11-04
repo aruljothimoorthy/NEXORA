@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root,
+[data-theme='dark'] {
+  --nexora-bg: #080b18;
+  --nexora-primary: #8b5cf6;
+  --nexora-secondary: #06b6d4;
+  --nexora-accent: #ec4899;
+  --nexora-success: #22c55e;
+  --nexora-text: #f8fafc;
+  --nexora-muted: #94a3b8;
+  --nexora-card: rgba(255, 255, 255, 0.04);
+  --nexora-border: rgba(255, 255, 255, 0.08);
+  --nexora-surface: #0b1020;
+}
+
+[data-theme='light'] {
+  --nexora-bg: #f4f6fb;
+  --nexora-primary: #7c3aed;
+  --nexora-secondary: #0891b2;
+  --nexora-accent: #db2777;
+  --nexora-success: #16a34a;
+  --nexora-text: #0f172a;
+  --nexora-muted: #64748b;
+  --nexora-card: rgba(15, 23, 42, 0.04);
+  --nexora-border: rgba(15, 23, 42, 0.1);
+  --nexora-surface: #ffffff;
+}
+
+/* NEXORA design tokens mapped for Tailwind utilities */
+@theme {
+  --color-nexora-bg: var(--nexora-bg);
+  --color-nexora-primary: var(--nexora-primary);
+  --color-nexora-secondary: var(--nexora-secondary);
+  --color-nexora-accent: var(--nexora-accent);
+  --color-nexora-success: var(--nexora-success);
+  --color-nexora-text: var(--nexora-text);
+  --color-nexora-muted: var(--nexora-muted);
+  --color-nexora-card: var(--nexora-card);
+  --color-nexora-border: var(--nexora-border);
+
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    background-color: var(--nexora-bg);
+    color: var(--nexora-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--nexora-primary) 40%, transparent);
+    color: var(--nexora-text);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--nexora-card);
+    border: 1px solid var(--nexora-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .neon-gradient {
+    background-image: linear-gradient(
+      135deg,
+      var(--nexora-primary),
+      var(--nexora-secondary),
+      var(--nexora-accent)
+    );
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(
+      135deg,
+      var(--nexora-primary),
+      var(--nexora-secondary),
+      var(--nexora-accent)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 40px color-mix(in srgb, var(--nexora-primary) 35%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

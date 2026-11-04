@@ -1,0 +1,25 @@
+{
+  "name": "nexora",
+  "version": "1.0.0",
+  "description": "NEXORA - Smart Project Management Platform (MERN SaaS)",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "install:all": "npm install --prefix frontend && npm install --prefix backend",
+    "build:frontend": "npm run build --prefix frontend",
+    "smoke": "npm run smoke --prefix backend",
+    "screenshots": "node scripts/capture-screenshots.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mern",
+    "saas",
+    "project-management",
+    "nexora"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,28 @@
+# Render Blueprint — NEXORA API
+# https://render.com/docs/blueprint-spec
+# After connecting the GitHub repo, set secret env vars in the dashboard.
+
+services:
+  - type: web
+    name: nexora-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: USE_MEMORY_MONGO
+        value: "false"
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: PORT
+        value: "10000"
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_URL
+        sync: false
