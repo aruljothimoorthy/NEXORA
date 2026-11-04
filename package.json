@@ -9,7 +9,8 @@
     "install:all": "npm install --prefix frontend && npm install --prefix backend",
     "build:frontend": "npm run build --prefix frontend",
     "smoke": "npm run smoke --prefix backend",
-    "screenshots": "node scripts/capture-screenshots.mjs"
+    "screenshots": "node scripts/capture-screenshots.mjs",
+    "verify:production": "node scripts/verify-production.mjs"
   },
   "engines": {
     "node": ">=18"

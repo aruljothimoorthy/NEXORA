@@ -8,7 +8,7 @@ Production targets:
 | Backend | [Render](https://render.com) |
 | Database | [MongoDB Atlas](https://www.mongodb.com/atlas) |
 
-Use this checklist in **Phase 10**. Phase 9 only prepares the repo and configs.
+Follow the ordered checklist in **[PHASE_10.md](./PHASE_10.md)** for the live Atlas → Render → Vercel cutover.
 
 ---
 

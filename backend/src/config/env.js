@@ -3,15 +3,29 @@ const path = require('path')
 
 dotenv.config({ path: path.join(__dirname, '../../.env') })
 
+const nodeEnv = process.env.NODE_ENV || 'development'
+const isProduction = nodeEnv === 'production'
+
 const required = ['MONGODB_URI', 'JWT_SECRET', 'CLIENT_URL']
 
 required.forEach((key) => {
   if (!process.env[key]) {
-    console.warn(`Warning: environment variable ${key} is not set`)
+    const message = `environment variable ${key} is not set`
+    if (isProduction) {
+      throw new Error(`Fatal: ${message}`)
+    }
+    console.warn(`Warning: ${message}`)
   }
 })
 
-const nodeEnv = process.env.NODE_ENV || 'development'
+if (isProduction && process.env.USE_MEMORY_MONGO === 'true') {
+  throw new Error('Fatal: USE_MEMORY_MONGO cannot be true in production')
+}
+
+if (isProduction && process.env.JWT_SECRET && process.env.JWT_SECRET.length < 32) {
+  throw new Error('Fatal: JWT_SECRET must be at least 32 characters in production')
+}
+
 const primaryClientUrl = process.env.CLIENT_URL || 'http://localhost:5173'
 
 /** Support comma-separated CLIENT_URL values + common Vite ports in development. */

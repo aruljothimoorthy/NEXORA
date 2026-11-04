@@ -6,8 +6,8 @@ Premium MERN Stack SaaS for project management, Kanban workflows, team collabora
 [![Stack](https://img.shields.io/badge/stack-MERN-7c3aed.svg)](#technology-stack)
 [![Phase](https://img.shields.io/badge/phase-9%20complete-22c55e.svg)](#development-phases)
 
-> **Status:** Phase 9 complete — GitHub-ready repo, docs, screenshots, and deployment prep.  
-> Live deploy lands in **Phase 10** (Atlas + Render + Vercel).
+> **Status:** Phase 10 in progress — production configs hardened; live URLs need your Atlas / Render / Vercel accounts.  
+> Cutover steps: **[docs/PHASE_10.md](docs/PHASE_10.md)**
 
 ---
 
@@ -253,7 +253,7 @@ Configs committed for Phase 10:
 7. **Phase 7** — Profile, settings, security ✅  
 8. **Phase 8** — Testing & polish ✅  
 9. **Phase 9** — GitHub + README + deploy prep ✅  
-10. Phase 10 — Production deploy (Atlas + Render + Vercel)  
+10. **Phase 10** — Production deploy (Atlas + Render + Vercel) 🔄  
 
 ---
 

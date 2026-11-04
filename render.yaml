@@ -1,6 +1,7 @@
 # Render Blueprint — NEXORA API
 # https://render.com/docs/blueprint-spec
-# After connecting the GitHub repo, set secret env vars in the dashboard.
+# Connect the GitHub repo in Render → New → Blueprint.
+# Secrets marked sync: false are entered in the dashboard on first create.
 
 services:
   - type: web
@@ -8,6 +9,9 @@ services:
     runtime: node
     rootDir: backend
     plan: free
+    region: oregon
+    branch: main
+    autoDeploy: true
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api/health
@@ -18,11 +22,10 @@ services:
         value: "false"
       - key: COOKIE_SECURE
         value: "true"
-      - key: PORT
-        value: "10000"
-      - key: MONGODB_URI
-        sync: false
+      # PORT is injected by Render — do not hardcode
       - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
         sync: false
       - key: CLIENT_URL
         sync: false
