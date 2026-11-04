@@ -1,7 +1,10 @@
 /**
  * Capture portfolio screenshots for the README.
  * Usage (from repo root, with frontend running):
- *   node scripts/capture-screenshots.mjs
+ *   npm i -D playwright
+ *   npx playwright install chromium
+ *   set NEXORA_UI_URL=http://localhost:5174
+ *   npm run screenshots
  */
 import { chromium } from 'playwright'
 import path from 'path'
